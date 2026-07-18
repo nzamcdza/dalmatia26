@@ -1,1 +1,698 @@
-<!doctype html><meta charset="utf-8"><title>Croatia 2026</title><p>Nearly ready.
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b3954">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Croatia 2026">
+<title>Croatia 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#15242e; --sub:#51626e; --line:#e1e7ec;
+  --navy:#0b3954; --teal:#0e7490; --sand:#ffd166; --red:#c0392b; --green:#1e8449;
+  --chip:#e8f1f5;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e1720; --card:#16222d; --ink:#e8eef2; --sub:#9db0bc; --line:#24343f; --chip:#1d2f3a; --red:#e57368; --green:#5dbb7f; }
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+html,body{margin:0; padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.45;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom));
+}
+header.top{
+  background:var(--navy); color:#fff; padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+  position:sticky; top:0; z-index:20;
+}
+header.top h1{margin:0; font-size:1.05rem; font-weight:700}
+header.top h1 .sub{font-size:.8rem; opacity:.75; font-weight:400}
+main{max-width:640px; margin:0 auto; padding:12px}
+section.tab{display:none}
+section.tab.active{display:block}
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:0 0 12px}
+.card h2{font-size:1.05rem; margin:0 0 6px}
+.card h3, .inner h3{font-size:.95rem; margin:14px 0 4px}
+.card p, .inner p{margin:6px 0}
+.card ul, .inner ul{margin:6px 0; padding-left:20px}
+.card li, .inner li{margin:4px 0}
+.muted{color:var(--sub); font-size:.86rem}
+a{color:var(--teal); text-decoration:none; word-break:break-word}
+a:active{opacity:.7}
+.chip{display:inline-block; background:var(--chip); color:var(--ink); border-radius:99px; padding:2px 10px; font-size:.76rem; font-weight:600; margin:0 6px 4px 0}
+.anchor{border-left:4px solid var(--teal); padding:6px 10px; margin:8px 0; background:var(--chip); border-radius:0 10px 10px 0}
+.anchor .t{font-weight:700; font-variant-numeric:tabular-nums}
+.warncard{border-left:4px solid var(--red)}
+details{margin:0 0 10px}
+details>summary{
+  list-style:none; cursor:pointer; background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:12px 16px; font-weight:600;
+}
+details>summary::-webkit-details-marker{display:none}
+details>summary .muted{font-weight:400}
+details[open]>summary{border-radius:14px 14px 0 0; border-bottom:none}
+details>.inner{background:var(--card); border:1px solid var(--line); border-top:none; border-radius:0 0 14px 14px; padding:4px 16px 12px; margin-top:0}
+.seg{display:flex; gap:6px; margin:0 0 12px}
+.seg button{
+  flex:1; padding:9px 4px; border-radius:10px; border:1px solid var(--line); background:var(--card);
+  color:var(--ink); font-weight:600; font-size:.9rem;
+}
+.seg button.on{background:var(--navy); color:#fff; border-color:var(--navy)}
+.city{display:none}
+.city.active{display:block}
+nav.bottom{
+  position:fixed; bottom:0; left:0; right:0; z-index:30;
+  background:var(--card); border-top:1px solid var(--line);
+  display:flex; padding-bottom:env(safe-area-inset-bottom);
+}
+nav.bottom button{
+  flex:1; background:none; border:none; color:var(--sub); font-size:.68rem; font-weight:600;
+  padding:8px 0 6px; display:flex; flex-direction:column; align-items:center; gap:2px;
+}
+nav.bottom button .ico{font-size:1.25rem; line-height:1}
+nav.bottom button.on{color:var(--teal)}
+label.tick{display:flex; align-items:flex-start; gap:10px; padding:7px 0; border-bottom:1px solid var(--line)}
+label.tick:last-child{border-bottom:none}
+label.tick input{width:20px; height:20px; margin-top:1px; accent-color:var(--teal); flex-shrink:0}
+label.tick input:checked + span{color:var(--sub); text-decoration:line-through}
+table{width:100%; border-collapse:collapse; font-size:.9rem}
+td,th{padding:5px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+th{color:var(--sub); font-weight:600; font-size:.8rem}
+.phone{white-space:nowrap}
+.resetbtn{background:none; border:1px solid var(--line); color:var(--sub); border-radius:8px; padding:6px 12px; font-size:.8rem; margin-top:10px}
+.countdown{text-align:center; padding:18px 0 6px}
+.countdown .n{font-size:2.6rem; font-weight:800; color:var(--teal)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Croatia 2026 <span class="sub">· Niall &amp; Orlaith · 19–31 July</span></h1>
+</header>
+
+<main>
+
+<!-- ============ TODAY ============ -->
+<section class="tab active" id="tab-today">
+  <div id="today-slot"></div>
+  <div class="card">
+    <h2>Quick grabs</h2>
+    <p>🚨 Emergencies: <a class="phone" href="tel:112">112</a> (free, works everywhere)</p>
+    <p>🛳️ Ferry 23rd: tickets <b>282J0RGS019</b> + <b>282J0RGS01A</b> — barcodes are on the PDF, keep it saved on both phones</p>
+    <p>🏨 Hotel numbers and map links: <b>Bookings</b> tab.</p>
+  </div>
+</section>
+
+<!-- ============ DAYS ============ -->
+<section class="tab" id="tab-days">
+  <p class="muted" style="margin:4px 2px 10px">Fixed stuff is locked in. The rest is a menu — pick over breakfast, no pressure.</p>
+  <div id="days-list"></div>
+</section>
+
+<!-- ============ TOWNS ============ -->
+<section class="tab" id="tab-towns">
+  <div class="seg" id="cityseg">
+    <button data-city="dbv" class="on">Dubrovnik</button>
+    <button data-city="hvr">Hvar</button>
+    <button data-city="spl">Split</button>
+  </div>
+
+  <!-- ---------- DUBROVNIK ---------- -->
+  <div class="city active" id="city-dbv">
+    <div class="card">
+      <h2>Dubrovnik · 19–23 July</h2>
+      <p>Casa Toni on Strma, 300m above Pile Gate. Everything below is on foot from there. Four nights, and the Old Town does most of the work for us.</p>
+      <p class="muted">Cruise ships rule the middle of the day. The town is ours before 9am and after 5pm. Monday and Thursday are the heavy ship days — each day card has the plan around them.</p>
+    </div>
+
+    <details>
+      <summary>🏰 The walls &amp; the big sights</summary>
+      <div class="inner">
+        <h3>City Walls — the one unmissable thing</h3>
+        <p>€40 each, 8:00–19:30, enter at Pile (2 min from our door). Go at 8am sharp or after 5pm — midday is an oven with cruise queues. Walk it <b>anticlockwise</b>, against the flow. About 2 hours. Keep the ticket: it gets us into Fort Lovrijenac free for 3 days.</p>
+        <p>💡 We land on a rare no-ship Sunday. If there's any energy after check-in, walls at 5:30pm on day one is the play.</p>
+        <p><a href="https://shop.citywallsdubrovnik.hr/en">Buy online — shop.citywallsdubrovnik.hr</a></p>
+        <p class="muted">The Dubrovnik Pass costs about the same (~€40) and throws in Rector's Palace, the monastery museums and city buses. If we fancy any museum at all, buy the Pass instead of the plain walls ticket. <a href="https://www.dubrovnikpass.com">dubrovnikpass.com</a></p>
+        <h3>Srđ cable car — the view</h3>
+        <p>€30 return each, runs 9:00–midnight. Sunset ~20:15 and it's the business up there — but so are the queues. Book a timed ticket online, or go mid-afternoon when it's quieter. <a href="https://www.dubrovnikcablecar.com/buy-tickets/">dubrovnikcablecar.com</a></p>
+        <h3>Lokrum island — half-day escape</h3>
+        <p>€30 each covers the boat and entry. Boats every 15–30 min from the old harbour, from 9am. Peacocks, monastery ruins, and the Dead Sea — a warm salt lake you just float in. The Iron Throne replica lives here too (Orlaith: photo). Over by 9:30, swim, café lunch, back early afternoon. Check the last boat back at the ticket booth.</p>
+        <h3>Worth it / skip it</h3>
+        <ul>
+          <li><b>Fort Lovrijenac</b> — free with the walls ticket. It's the Red Keep. Go.</li>
+          <li><b>Rector's Palace</b> — €15 (or in the Pass). Cool inside, one hour.</li>
+          <li><b>Franciscan pharmacy</b> — €10. Oldest working pharmacy in Europe, lovely cloister. Quick.</li>
+          <li><b>War Photo Ltd</b> — €10, open till 10pm. Heavy but brilliant. Perfect for the hottest hours.</li>
+          <li><b>Cathedral</b> — free, stick your head in.</li>
+        </ul>
+        <h3>Sea kayak at sunset</h3>
+        <p>€40–45 each, 2.5–3 hours around the walls with a swim stop, launching from Pile bay under our noses. July slots go days ahead — book straight away if we want it. <a href="https://adventuredalmatia.com/one-day-activities/sea-kayaking-dubrovnik-sunset-tour/">Adventure Dalmatia</a></p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🐉 King's Landing (for Orlaith)</summary>
+      <div class="inner">
+        <p>The free self-guided hit list:</p>
+        <ul>
+          <li><b>Jesuit Stairs</b> — the Walk of Shame steps. Early morning for a clear photo.</li>
+          <li><b>Fort Lovrijenac</b> — the Red Keep (free with the walls ticket).</li>
+          <li><b>Pile bay</b> — Blackwater Bay, right below the fort.</li>
+          <li><b>Minčeta Tower</b> — House of the Undying, part of the walls walk.</li>
+          <li><b>Ethnographic Museum lane</b> — Littlefinger's brothel exterior.</li>
+          <li><b>Lokrum</b> — Qarth, plus the Iron Throne replica for the photo.</li>
+        </ul>
+        <p><b>The tour:</b> worth doing once — the guides have on-set stories and it orients the whole town. €22–30 each, ~2 hours. Top-rated is the King's Landing walking tour on <a href="https://www.getyourguide.com/dubrovnik-l513/">GetYourGuide</a> (4.9★); <a href="https://wallsofdubrovnik.com/dubrovnik-game-of-thrones-tour/">wallsofdubrovnik.com</a> runs one at €22 from Pile Square. Do it day one or two, then revisit the good spots ourselves.</p>
+        <p class="muted"><b>Trsteno Arboretum</b> — the Tyrell gardens, 20 min up the coast by bus. Feels like walking onto the set. Half a day with travel — only if the fandom demands it.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🏖️ Beaches</summary>
+      <div class="inner">
+        <p><b>Šulić (Kolorina)</b> — our local. Tiny cove under Fort Lovrijenac, minutes from the door. Free, cliff shade, calm water. Water shoes on — pebble and rock.</p>
+        <p><b>Danče</b> — where the locals swim. Rocky platform past Gradac park, 10 min. Free.</p>
+        <p><b>Banje</b> — the scene one, past Ploče Gate (20 min walk or a short Bolt). Free section at the east end if we're there before 9am; loungers €40–60 the pair and gone by 10, so book. One lounger day, max.</p>
+        <p class="muted">Sea is ~25°C. All pebble, no sand anywhere this trip — the water shoes aren't optional.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🍽️ Food</summary>
+      <div class="inner">
+        <h3>The big dinner — Nautika</h3>
+        <p>Right at Pile Gate, 2 minutes from Casa Toni, terrace over the water facing Lovrijenac. One of the most romantic tables in Europe and it's on our doorstep. Ask for the <b>upper terrace</b>. Roughly €150–250 for two with wine. Book now — July fills fast: <a href="https://book.seatlio.com/nautika-collection">book online</a> or <a class="phone" href="tel:+38520442526">+385 20 442 526</a>.</p>
+        <p class="muted">Backups: Restaurant Dubrovnik — Old Town rooftop, Michelin-listed, <a class="phone" href="tel:+385992585871">+385 99 258 5871</a>. Or Proto, the old fish house since 1886, <a class="phone" href="tel:+38520323234">+385 20 323 234</a>.</p>
+        <h3>Cheap and good</h3>
+        <ul>
+          <li><b>Barba</b> — octopus burger, fried calamari, counter job. Boškovićeva 5. €9–15.</li>
+          <li><b>Pizzeria Tabasco</b> — locals' pizza just outside the walls. €15–20 sit-down.</li>
+          <li><b>Oliva</b> — takeaway slices in the Old Town.</li>
+          <li><b>Sandwich Bar Pile</b> — grilled chicken sandwich ~€6.50, right by our gate.</li>
+          <li><b>Pekarnica Pile</b> — bakery at the gate. Burek and pastries €1–5. Breakfast on the go.</li>
+          <li><b>Gelato</b> — Peppino's (the famous one) or Gelateria Dubrovnik near Pile (older, cheaper, just as good).</li>
+        </ul>
+        <p class="muted">Rule: never eat ON Stradun. One street back — Prijeko, Boškovićeva, Žudioska — same food, half the price.</p>
+        <h3>Breakfast</h3>
+        <p><b>Dubravka 1836</b> at Pile — terrace facing the fort, worth one slow morning. Otherwise the bakery and a bench.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🍸 Nights</summary>
+      <div class="inner">
+        <p><b>Buža II</b> — the hole-in-the-wall cliff bar. Through a doorway in the south wall, drinks on the rocks, lads jumping off cliffs. Beer €6–8, cocktails €12–15, takes cards. Heads up: no sunset view — the wall blocks it. Go for the late-evening sitting, or early for a swim.</p>
+        <p><b>D'Vino</b> — snug wine bar, Palmotićeva 4a. Do a flight of three Croatian wines. Pre-dinner.</p>
+        <p><b>Beer Factory</b> — craft pints in a quiet courtyard when it's a pints night.</p>
+        <p><b>Culture Club Revelin</b> — an actual club inside a fortress, festival season through July. Check <a href="https://www.clubrevelin.com/en/events">the lineup</a> — and take the promoter cards handed out near the square before paying full door.</p>
+        <p class="muted">Honest read: Dubrovnik isn't a club town. The night here is golden-hour walls → wine → Buža on the rocks. The big nights are Hvar's job.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ---------- HVAR ---------- -->
+  <div class="city" id="city-hvr">
+    <div class="card">
+      <h2>Hvar · 23–27 July</h2>
+      <p>Pharos Bayhill, a few minutes up the hill from the harbour, breakfast included. Three full days: boats, beaches and the best nights of the trip.</p>
+      <p class="muted">The hill: 10–15 min down to town, steps at the end. Sunčani Hvar porters meet every catamaran and buggy the luggage up free — message ahead (details in Bookings).</p>
+      <p class="muted">Worth knowing: Hvar brought in strict noise rules, so the scene has shifted — beach clubs peak at sunset, town bars go to ~2am, and the late-late stuff moved indoors. Still the party island, just a different shape to the night.</p>
+    </div>
+
+    <details>
+      <summary>🏖️ Beaches &amp; the town</summary>
+      <div class="inner">
+        <h3>Walkable beaches</h3>
+        <ul>
+          <li><b>Pokonji Dol</b> — 20 min east along the coast path. Proper laid-back cove, beach bar, loungers €15–20 the pair. Gone by midday in July — go early.</li>
+          <li><b>Majerovica</b> — 10 min west. Small, free, no fuss. The quiet-morning option.</li>
+          <li><b>Bonj (Beach Club Hvar)</b> — the polished one, 15 min west. Standard bed ~€50; the over-water deck for two is ~€170 if we fancy one blow-out lounger day. <a href="https://booking.beachhvar.com/cms">Book ahead</a>.</li>
+        </ul>
+        <p class="muted">Pebble and rock everywhere. Water shoes. Urchins are real.</p>
+        <h3>Fortica — the fortress</h3>
+        <p>€10, open till 10pm. Steep 15–20 min climb from the square, so save it for the cool of the evening — head up an hour before sunset (~20:15), café at the top, the Pakleni islands laid out below. Best view on the island.</p>
+        <h3>The square</h3>
+        <p>Pjaca and the cathedral (€2, shoulders covered) — 20 minutes, done. This is a beach stop, not a museum stop.</p>
+        <h3>On while we're there</h3>
+        <ul>
+          <li><b>Sat 25</b> — free choir concert on the square in the evening, part of the summer festival.</li>
+          <li><b>Sun 26</b> — Rambo Amadeus (cult Balkan act, a genuine curiosity) at Veneranda, 21:30. Tickets <a href="https://adriaticket.com">adriaticket.com</a>.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>⛵ The Pakleni day — the classic</summary>
+      <div class="inner">
+        <p>Taxi boats leave the Riva every 20–30 min from ~9am. Cash. Last boats back ~6–7pm — check when you board.</p>
+        <p><b>The shape of the day:</b> boat to <b>Palmižana</b> around 10 (€15 return) → swim in Vinogradišće bay → long lunch at <b>Toto's</b> (relaxed, good value — book: <a class="phone" href="tel:+38521718242">+385 21 718 242</a>) → afternoon hop to <b>Stipanska</b> for <b>Carpe Diem Beach</b> — sunbeds ~€50, pool, nets over the sea; free entry, boats from in front of Mlinar bakery (€10 return). Book beds a few days out on WhatsApp: <a class="phone" href="https://wa.me/385994468468">+385 99 446 8468</a>. Back on the last boat, sunset drink in town.</p>
+        <p class="muted">Fancier lunch at Palmižana: Laganini — €40–45 a head, minimum spends on the beds.</p>
+        <p class="muted">Want nothing at all? Mlini or Ždrilca coves, €10 return.</p>
+        <p class="muted">Splurge alternative: skippered boat for the day, €500–800. Only if the mood takes us — the taxi boats do the job.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🎉 Nights out — the party stop</summary>
+      <div class="inner">
+        <h3>The circuit, in order</h3>
+        <p><b>Hula Hula</b> — THE sunset session. 15–20 min along the coast path west. DJ builds from 4pm, peaks 6–8pm as the sun drops behind the islands. Beds €15 on the rocks or €40 on the dock with service; cocktails €12–22. Standing room is free but be there before 4 for a bed. Winds down ~8:30 — it's the warm-up, not the night.</p>
+        <p><b>Kiva Bar</b> — the alleyway institution, 2 min off the harbour. Free in, drinks €5–8, rammed from 10pm, closes ~2am now. Treat it as a loud, brilliant 45-minute scoop, not the whole night — it's tiny.</p>
+        <p><b>Carpe Diem bar</b> (the harbour one) — the polished cocktail stop at the end of the Riva. €15–22 a drink, smart-casual after dark. Warm-up or wind-down.</p>
+        <p><b>Central Park Club</b> — live band nightly from 8, just off the square. Cocktails €12–18. Music you can still talk over — the reset stop.</p>
+        <p><b>Ka'lavanda</b> — lavender-lit cocktail lounge near the cathedral, open till midnight. Pre-dinner one.</p>
+        <p><b>Late-late</b> — the after-2am scene has moved indoors: <b>Pink Champagne</b> (roughly midnight–6am, cover €20–50, burlesque show ~2am) and <b>Passarola</b>, a deep-house basement doing headphone "silent set" nights from ~1am. Check their Instagrams on the day for what's on.</p>
+        <p class="muted">⚠️ The famous Carpe Diem island boat party (1am–5am on Stipanska) has been suspended since 2024 and hadn't restarted at time of writing. The daytime/sunset "Afterbeach" (4pm–midnight) runs as normal. If the boat party matters, WhatsApp them — <a class="phone" href="https://wa.me/385994468468">+385 99 446 8468</a> — and ask.</p>
+        <h3>How the nights fall</h3>
+        <ul>
+          <li><b>Thu 23</b> (we arrive 18:25) — easy one: dinner, Riva stroll, one Kiva scoop to say hello.</li>
+          <li><b>Fri 24 + Sat 25</b> — the big two. Full circuit: Hula Hula sunset → dinner → Kiva → Carpe Diem bar → late-late if standing.</li>
+          <li><b>Sun 26</b> — town winds down earlier; Fortica sunset + Rambo Amadeus is the classier finish.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🍽️ Food</summary>
+      <div class="inner">
+        <h3>The big dinner — Gariful</h3>
+        <p>Riva 21, right on the water where the yachts tie up. THE romantic table in Hvar — fish straight off the boats, sunset over the harbour. It's top-end: €200+ for two with wine. Books out weeks ahead in July, so get it done now: <a href="https://hvar-gariful.hr">hvar-gariful.hr</a> or <a class="phone" href="tel:+38521742999">+385 21 742 999</a>. Ask for a table right on the water. Saturday night would be the one.</p>
+        <p class="muted">Backup: Giaxa — quiet stone courtyard away from the harbour, ~€45–50 a head, more intimate. <a href="https://giaxa.com">giaxa.com</a>.</p>
+        <h3>Cheap and good</h3>
+        <ul>
+          <li><b>Fig</b> — the value pick, flatbreads and big fresh plates down a 16th-century alley. No bookings — go early or queue.</li>
+          <li><b>Mizarola</b> — proper pizza, ~€20–25 a head with wine. <a class="phone" href="tel:+38598799978">+385 98 799 978</a>.</li>
+          <li><b>Kebab Factory</b> — €10–15, does the job.</li>
+          <li><b>Kogo</b> — pizza till midnight.</li>
+          <li><b>Lola</b> — street food that's actually great (lamb burgers, gyoza) with cocktails, kitchen late, open till 2. Doubles as the after-Kiva feed.</li>
+          <li><b>Mlinar bakery</b> on the Riva — the late-late burek stop.</li>
+          <li><b>Gelato</b> — aROMA on Fabrika (lemon-basil) or L'Amore.</li>
+        </ul>
+        <p class="muted">Breakfast's sorted — it's included at Pharos.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ---------- SPLIT ---------- -->
+  <div class="city" id="city-spl">
+    <div class="card">
+      <h2>Split &amp; Solin · 27–31 July</h2>
+      <p>Two nights at the Radisson with its beach club, then two winding down at Salona Palace in Solin — spa, garden, Roman ruins next door, and nearer the airport for the early flight.</p>
+    </div>
+
+    <details>
+      <summary>🎧 Mistral Beach Club &amp; beach days</summary>
+      <div class="inner">
+        <h3>Mistral — ours for two days</h3>
+        <p>The Radisson's own beach club, downstairs on the pebbles. <b>Free sunbeds for hotel guests</b> — claim them by mid-morning, they go. Open ~9am–8pm, restaurant from noon, DJ through the afternoon till close. If we want the posh corner: pebble-beach cabana for two, €100/day — <a href="mailto:events.mistral@radissonblu.com">events.mistral@radissonblu.com</a> or <a class="phone" href="tel:+385991681454">+385 99 168 1454</a>.</p>
+        <h3>Who's playing (confirmed off their events page)</h3>
+        <ul>
+          <li><b>Mon 27 – Wed 29</b> — resident DJ Jorgos Mitropetros, daily.</li>
+          <li><b>Thu 30</b> — The Illusionist: Matthew Bee &amp; DJ Black Shark.</li>
+          <li><b>Fri 31</b> — The Illusionist by <b>Tom Novy</b>, with Jorgos &amp; Monkey Miro.</li>
+        </ul>
+        <p class="muted">Yes — the two headline nights land after we've moved to Solin. Thursday's is a €15ish Bolt away if we want it. Friday is Niall's call (see the last day).</p>
+        <h3>Kašjuni + Joe's — the Solin days</h3>
+        <p>Salona Palace runs a <b>free shuttle</b> to Kašjuni beach in July — get times from reception at check-in. Kašjuni is the nicest beach of the trip: pines behind it for actual shade, calm clear water. Joe's beach lounge holds the east end — beds €50–150 with full service, or lay a towel free on the open section. It fills by 10am, so morning it is. Bolt back ~€5–10 if the shuttle timing's off.</p>
+        <p class="muted">Bačvice, Split's famous sandy beach, is a culture stop not a beach upgrade — watch the locals play picigin for half an hour if we're passing on the way into town, and leave it at that.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🏛️ The palace &amp; the Old Town — one relaxed outing</summary>
+      <div class="inner">
+        <p>Split's Old Town IS Diocletian's Palace — a Roman palace with a city grown inside it. One good half-day, timed for the evening, covers it.</p>
+        <h3>The shape of it</h3>
+        <ul>
+          <li><b>Go in around 5–6pm</b> when the heat breaks and the korzo (evening promenade) starts.</li>
+          <li><b>The cellars</b> (~€8) — vaulted Roman halls under the palace, naturally cool, and yes: the dragon-egg room for Orlaith. The one thing worth doing in the heat.</li>
+          <li><b>Peristyle</b> — the central square, free. Sphinx included.</li>
+          <li><b>Temple of Jupiter</b> (~€3) — 15 minutes, worth it.</li>
+          <li><b>Bell tower</b> — 183 exposed steps. Only at 8am, or not at all. Skippable.</li>
+          <li><b>Riva at golden hour</b> — the seafront promenade doing its thing. Free and the best bit.</li>
+        </ul>
+        <p class="muted">Buy tickets at the Peristyle kiosks on the day — combos run ~€15–20 for the lot. Green Market's worth a glance if we're there in a morning instead.</p>
+        <p class="muted">Getting there: Bolt from the Radisson ~€6–8 (4 min), or a flat 35–40 min coast walk via Firule and Bačvice — the walk in for dinner, Bolt home, is the move.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>🍽️ Food</summary>
+      <div class="inner">
+        <h3>The big dinner — Kadena</h3>
+        <p>Michelin-listed seafood on a terrace over the Zenta marina — and it's practically beside the Radisson. €35–50 a head, which for the standard is the best value of the trip's big dinners. Book: <a href="https://www.opentable.com/r/restoran-kadena-split">OpenTable</a> or <a href="https://www.restorankadena.com">restorankadena.com</a>. Tuesday night, no taxi needed.</p>
+        <p class="muted">Backup: Dvor — pine terrace over Firule bay, ~€85 a head with wine, arguably the prettier setting. <a class="phone" href="tel:+38521571513">+385 21 571 513</a>. The full splurge: Zoi, rooftop inside the palace walls, tasting menus €100–135 before wine.</p>
+        <h3>Cheap and good</h3>
+        <ul>
+          <li><b>ST Burek</b> — the burek institution at the Old Town entrance, ~€3. Was on "Somebody Feed Phil".</li>
+          <li><b>Rizzo</b> — sandwich bar so good the Subway next door closed. €3.60–6.50.</li>
+          <li><b>Kruščić</b> — artisan bakery behind the fish market. Mornings only, cash, sells out.</li>
+          <li><b>Pizzeria Portas</b> — pizza by the Golden Gate; <b>Pizza Cut Planet 2</b> for slices.</li>
+          <li><b>Luka</b> — best gelato in Split, behind the theatre. Queue happily.</li>
+          <li><b>Near the hotel</b> — the Žnjan promenade was rebuilt last year: Central Beach does pizza ~€10, open 8am–1am, ten minutes' walk along the coast.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>✈️ Salona, the spa &amp; the last day</summary>
+      <div class="inner">
+        <h3>Salona ruins — literally next door</h3>
+        <p>The ruins of the Roman capital of Dalmatia start 200m from the hotel — amphitheatre that held 17,000, city walls, the lot. €8 in, open 9am–8pm, ticket office at the Tusculum entrance. Barely any shade and rough paths, so it's a 9am job with proper shoes, an hour or so. Genuinely great, and we'll have it nearly to ourselves.</p>
+        <h3>The hotel</h3>
+        <p>Thermae Salonae spa — pools, three saunas, steam. Ask at check-in what's included and book any treatments early. One to know: the hotel does weddings — we've already emailed asking if one's on for our dates; if reception confirms one, ask for a room on the far side.</p>
+        <h3>Friday 31 — the exit plan</h3>
+        <p><b>Orlaith:</b> car at 06:45 for the 09:05 flight. <b>Book it Thursday night on Bolt Reserve</b> (schedule-ahead — don't chance a live hail at 6am in Solin), ~€15–25. Hotel's shuttle (~€30 a car) is the backup — ask reception Thursday.</p>
+        <p><b>Niall:</b> checkout's 11:00 — they'll store the bags and reception are sound about letting you use the pool after. The smart day: <b>Trogir</b>. It's 20 minutes away on the airport side — tiny Venetian old town, Kamerlengo fortress, lunch on the harbour at Franka or Piccolo Ponte, and the airport's then a 10-minute hop. Bus 37 from Sveti Kajo (220m from the hotel) goes Solin → airport → Trogir every 10–20 min for ~€2 if the bags are light, otherwise Bolt.</p>
+        <p class="muted">The tempting alternative: Tom Novy plays Mistral that same Friday. Honest take — it's the wrong side of the city with luggage, guest perks ended at Radisson checkout, and it makes the flight tight. If the head insists: club till ~19:30 max, Bolt straight through, airport 20:15.</p>
+        <p class="muted">SPU airport: eat BEFORE security — airside is one sad sandwich kiosk. Arriving ~19:45–20:00 for the 22:15 is right. Lounge isn't worth chasing on a Ryanair ticket.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ BOOKINGS ============ -->
+<section class="tab" id="tab-book">
+
+  <div class="card warncard">
+    <h2>⚠️ Still to book — do this one now</h2>
+    <p><b>Jadrolinija 641 catamaran, Hvar → Split, Mon 27 July, 11:30</b> (~65 min, €25 each). Was wide open when checked, but it's July — buy it today.</p>
+    <p><a href="https://www.jadrolinija.hr/en/travel/split-hvar">Book on jadrolinija.hr →</a></p>
+  </div>
+
+  <div class="card">
+    <h2>✈️ Flights</h2>
+    <table>
+      <tr><th>When</th><th>Flight</th><th>Times</th></tr>
+      <tr><td>Sun 19 Jul</td><td><b>FR3880</b> Dublin → Dubrovnik<br><span class="muted">both of us</span></td><td>08:55 → 13:10</td></tr>
+      <tr><td>Fri 31 Jul</td><td><b>VY2479</b> Split → Barcelona<br><span class="muted">Orlaith</span></td><td>09:05 → 11:20</td></tr>
+      <tr><td>Fri 31 Jul</td><td><b>FR1381</b> Split → Dublin<br><span class="muted">Niall</span></td><td>22:15 → 00:25</td></tr>
+    </table>
+    <p class="muted">Sunday: at Dublin airport for ~06:45. Friday: Orlaith's car leaves Salona Palace 06:45.</p>
+  </div>
+
+  <div class="card">
+    <h2>🛳️ Boats</h2>
+    <h3>Booked · Dubrovnik → Hvar</h3>
+    <p><b>TP Line, Thu 23 July, 14:55 → 18:25</b>, from Gruž port. Paid €100. Tickets <b>282J0RGS019</b> and <b>282J0RGS01A</b>, receipt 107823-15-1. 20kg bag limit each. Barcodes are on the PDF — keep it saved on both phones.</p>
+    <p class="muted">At Gruž by 14:10. If disaster strikes and we miss it: Krilo runs at 15:30 the same day.</p>
+    <p class="muted">Afternoon sun comes over the left side heading up the coast — sit right for shade.</p>
+    <h3>To book · Hvar → Split</h3>
+    <p>Jadrolinija 641, Mon 27 July, 11:30 → ~12:35. €25 each. Red card above.</p>
+  </div>
+
+  <div class="card">
+    <h2>🏨 Hotels</h2>
+    <h3>Casa Toni — Dubrovnik · 19–23 Jul</h3>
+    <p>Strma 7, 300m up from Pile Gate. Host is Kruno. <a href="https://maps.google.com/?q=Apartments+Casa+Toni+Dubrovnik">Map</a></p>
+    <h3>Pharos Hvar Bayhill — Hvar · 23–27 Jul</h3>
+    <p>Dinka Kovačevića 10. B&amp;B — breakfast in. <a class="phone" href="tel:+38521750500">+385 21 750 500</a> (same number on WhatsApp). <a href="https://maps.google.com/?q=Pharos+Hvar+Bayhill+Hotel">Map</a></p>
+    <p class="muted">Porters: email <a href="mailto:transfers@suncanihvar.com">transfers@suncanihvar.com</a> or WhatsApp the hotel — booking name + "TP Line arriving 18:25, 23 July" — and they'll cart the bags up free. Book the return run at reception the day before we leave. We've asked for a room away from the pool bar.</p>
+    <h3>Radisson Blu Resort — Split · 27–29 Jul</h3>
+    <p>Put Trstenika 19. <a class="phone" href="tel:+38521303030">+385 21 303 030</a> · <a href="mailto:info.split@radissonblu.com">info.split@radissonblu.com</a>. <a href="https://maps.google.com/?q=Radisson+Blu+Resort+Split">Map</a></p>
+    <p class="muted">Emailed 18 Jul: high floor, sea view, away from the rear construction, breakfast query. Chase if no reply.</p>
+    <h3>Salona Palace — Solin · 29–31 Jul</h3>
+    <p>Don Frane Bulića 87, Solin. <a class="phone" href="tel:+38521250900">+385 21 250 900</a> / <a class="phone" href="tel:+385911020466">+385 91 102 0466</a> · <a href="mailto:info@salonapalace.com">info@salonapalace.com</a>. <a href="https://maps.google.com/?q=Hotel+Salona+Palace+Solin">Map</a></p>
+    <p class="muted">Check-in 15:00, checkout 11:00 — they'll hold bags and are relaxed about the pool after checkout. Spa on site. Emailed 18 Jul: double bed not twin, weddings on our dates?, Kašjuni shuttle times, airport shuttle price. Chase if no reply.</p>
+  </div>
+
+  <div class="card">
+    <h2>🚕 Getting between everything</h2>
+    <ul>
+      <li><b>Dubrovnik airport → Pile</b>: Platanus shuttle €10pp (<a href="https://ticket.platanus.hr">ticket.platanus.hr</a>) or taxi ~€35–40. Shuttle drops at Pile — 300m from the door.</li>
+      <li><b>Casa Toni → Gruž port</b> (23rd): Bolt ~€10, 10 min. Leave by 13:45.</li>
+      <li><b>Hvar pier ↔ Pharos</b>: porters (free) or the 10-min uphill walk.</li>
+      <li><b>Split pier → Radisson</b> (27th): Bolt ~€10.</li>
+      <li><b>Radisson ↔ Old Town</b>: Bolt ~€6–8, or the flat 35–40 min coast walk.</li>
+      <li><b>Radisson → Salona Palace</b> (29th): Bolt ~€10–15, 20 min.</li>
+      <li><b>Salona Palace → airport</b>: Bolt ~€15–25 (16km) — use <b>Bolt Reserve</b> for the 06:45 run. Hotel shuttle ~€30/car as backup. Bus 37 from Sveti Kajo (~€2, every 10–20 min) if bags are light.</li>
+    </ul>
+    <p class="muted">Bolt works in all three towns — have it installed and logged in before we fly.</p>
+  </div>
+</section>
+
+<!-- ============ INFO ============ -->
+<section class="tab" id="tab-info">
+
+  <div class="card">
+    <h2>💶 Money — don't get stung</h2>
+    <ul>
+      <li>It's the euro. Cards fine nearly everywhere; keep €50-ish cash for taxi boats, markets and small konobas.</li>
+      <li><b>Never touch a Euronet ATM.</b> Bank ATMs only: ZABA, PBZ, Erste, RBA.</li>
+      <li>Any machine offering "pay in EUR or your currency" — <b>always EUR</b>. Same on card terminals.</li>
+      <li>Tipping: 10% at restaurants if it was good, round up coffees and taxis. Tip in cash even when paying by card.</li>
+    </ul>
+    <h3>What things should cost</h3>
+    <table>
+      <tr><td>Espresso</td><td>€1.50–2.50 (€6+ if you sit on Stradun — don't)</td></tr>
+      <tr><td>Beer (bar, half-litre)</td><td>€2–5</td></tr>
+      <tr><td>Cocktail (tourist bar)</td><td>€8–15 (€12–22 in Hvar)</td></tr>
+      <tr><td>Pizza</td><td>~€14, slices €2.50</td></tr>
+      <tr><td>Pasta main</td><td>€12–16</td></tr>
+      <tr><td>Seafood main</td><td>€18–30</td></tr>
+      <tr><td>Water (shop)</td><td>~€1 — €3 at the beach, so stock up</td></tr>
+      <tr><td>Short Bolt</td><td>€5–8</td></tr>
+    </table>
+    <p class="muted">July adds ~30% to everything on the coast. The price of sunshine.</p>
+  </div>
+
+  <div class="card">
+    <h2>☀️ Heat, sea &amp; staying right</h2>
+    <ul>
+      <li>28–33°C daily, savage UV. Factor 50, reapply after swims.</li>
+      <li>Shade or indoors 12–4pm. Mornings and evenings are when Croatia is lovely.</li>
+      <li>2–3 litres of water a day each. Tap water is grand everywhere we're staying.</li>
+      <li>Sea ~25°C. Every beach is pebbles — <b>water shoes on</b>, urchins live in the rocks.</li>
+      <li>Phones: Irish SIMs roam free in the EU. Nothing to sort.</li>
+      <li><b>Plugs are round two-pin — Irish plugs need adapters.</b> Bring two.</li>
+      <li>Pharmacy = <i>ljekarna</i>, usually 8–8 weekdays. Emergencies: <a class="phone" href="tel:112">112</a>.</li>
+      <li>Churches: shoulders and knees covered or you're not getting in.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🗣️ Enough Croatian to be sound</h2>
+    <table>
+      <tr><td>Bok</td><td class="muted">bock</td><td>hello</td></tr>
+      <tr><td>Dobro jutro</td><td class="muted">DOH-broh YOO-troh</td><td>good morning</td></tr>
+      <tr><td>Molim</td><td class="muted">MOH-leem</td><td>please</td></tr>
+      <tr><td>Hvala</td><td class="muted">HVAH-lah</td><td>thanks</td></tr>
+      <tr><td>Dvije pive, molim</td><td class="muted">DVEE-yeh PEE-veh MOH-leem</td><td>two beers please</td></tr>
+      <tr><td>Račun, molim</td><td class="muted">RAH-choon MOH-leem</td><td>the bill please</td></tr>
+      <tr><td>Živjeli!</td><td class="muted">ZHEE-vyeh-lee</td><td>cheers!</td></tr>
+      <tr><td>Koliko?</td><td class="muted">koh-LEE-koh</td><td>how much?</td></tr>
+      <tr><td>Gdje je…?</td><td class="muted">g-DYEH yeh</td><td>where is…?</td></tr>
+      <tr><td>Ukusno!</td><td class="muted">OO-koos-noh</td><td>delicious!</td></tr>
+      <tr><td>Doviđenja</td><td class="muted">doh-vee-JEN-yah</td><td>goodbye</td></tr>
+    </table>
+    <p class="muted">Every letter gets said. "Živjeli" over two beers fixes most situations.</p>
+  </div>
+
+  <div class="card">
+    <h2>✅ Before we fly (tonight!)</h2>
+    <div id="list-pretrip"></div>
+  </div>
+
+  <div class="card">
+    <h2>🧳 Packing</h2>
+    <div id="list-packing"></div>
+    <button class="resetbtn" id="resetticks">Reset all ticks</button>
+  </div>
+
+  <div class="card">
+    <h2>📲 Keeping this app handy</h2>
+    <p><b>iPhone:</b> open this page in Safari → Share → "Add to Home Screen".</p>
+    <p><b>Android:</b> open in Chrome → menu (⋮) → "Add to Home screen" / "Install app".</p>
+    <p class="muted">Once it's on the home screen it works with no signal — airplane mode, mid-Adriatic, doesn't matter. Open it once on wifi after installing so it's fully saved.</p>
+  </div>
+</section>
+
+</main>
+
+<nav class="bottom">
+  <button data-tab="tab-today" class="on"><span class="ico">☀️</span>Today</button>
+  <button data-tab="tab-days"><span class="ico">📅</span>Days</button>
+  <button data-tab="tab-towns"><span class="ico">📍</span>Towns</button>
+  <button data-tab="tab-book"><span class="ico">🎫</span>Bookings</button>
+  <button data-tab="tab-info"><span class="ico">ℹ️</span>Info</button>
+</nav>
+
+<script>
+// ---------- day data ----------
+const DAYS = [
+  {d:"2026-07-19", city:"Dubrovnik", title:"Sun 19 · Off we go",
+   anchors:[["06:45","Dublin airport — bags in, breakfast airside"],["08:55","FR3880 to Dubrovnik, lands 13:10"],["14:00","Platanus shuttle (€10pp) or taxi to Pile — check in at Casa Toni"]],
+   options:["No cruise ships today — rare. Walls at 5:30pm in the evening cool would be a flying start (€40, in at Pile).","First wander down Stradun as the day crowd thins.","Evening drink at Buža II, on the rocks.","Easy dinner: Tabasco pizza or Barba's octopus burger. Early-ish night — long day."]},
+  {d:"2026-07-20", city:"Dubrovnik", title:"Mon 20 · Dodge the ships",
+   anchors:[],
+   options:["Heavy cruise day (3,500+ ashore by 10am) — so get OUT: Lokrum from 9:30, float in the Dead Sea, Iron Throne photo, back mid-afternoon.","Or walls at 8am sharp if Sunday didn't happen.","Beach hour at Šulić below the fort.","GoT walking tour late afternoon once the ships empty (~5pm).","Dinner one street back from Stradun, D'Vino after."]},
+  {d:"2026-07-21", city:"Dubrovnik", title:"Tue 21 · Busy town, big view",
+   anchors:[],
+   options:["Another shippy day. Morning swim at Danče with the locals.","Trsteno Arboretum — the Tyrell gardens, half a day, if Orlaith fancies it.","War Photo Ltd through the worst of the heat (open till 10pm).","Cable car up Srđ for sunset ~20:15 — book the timed ticket.","Or the sunset kayak (~€45, book ahead), swim stop included."]},
+  {d:"2026-07-22", city:"Dubrovnik", title:"Wed 22 · The blow-out",
+   anchors:[["20:00","Nautika — the big dinner, upper terrace (booked?)"]],
+   options:["Quieter ship morning: Rector's Palace + the Franciscan pharmacy before noon.","Banje lounger day — book the beds, or the free end before 9am.","Lokrum if Monday didn't happen.","After dinner: last Buža nightcap, or Revelin if the lineup's right."]},
+  {d:"2026-07-23", city:"→ Hvar", title:"Thu 23 · Boat day",
+   anchors:[["10:00","Pack + check out of Casa Toni"],["13:45","Bolt to Gruž port (10 min, ~€10)"],["14:10","At the pier — tickets 282J0RGS019/01A, PDF ready"],["14:55","TP Line catamaran → Hvar, arrives 18:25"],["18:25","Porters meet the boat (messaged?) — check in at Pharos"]],
+   options:["Heaviest cruise morning of the week — slow coffee at Dubravka, stay near Pile, nothing ambitious.","Sit right-hand side on the boat for shade.","Hvar night one, gently: Mizarola or Fig, stroll the Riva, one Kiva scoop to say hello."]},
+  {d:"2026-07-24", city:"Hvar", title:"Fri 24 · The Pakleni day",
+   anchors:[],
+   options:["THE day: taxi boat ~10am to Palmižana (€15 return), swim Vinogradišće, long lunch at Toto's (booked?), afternoon hop to Carpe Diem Beach on Stipanska (beds ~€50 — WhatsApped ahead?), last boat back.","Hula Hula sunset session on the way home — that's the warm-up.","Dinner, then Kiva till late. This is what we came for."]},
+  {d:"2026-07-25", city:"Hvar", title:"Sat 25 · Beds and the big night",
+   anchors:[["21:00","Gariful — the big dinner, on the water (booked?)"]],
+   options:["Slow start. Beach: Pokonji Dol early, or the Bonj beach-club splurge (over-water deck €170 if we're feeling it).","Free choir concert on the square — stumble across it with a gelato.","Saturday is Hvar's biggest night — the full circuit: Hula Hula sunset → dinner → Kiva → Carpe Diem bar → late-late if standing."]},
+  {d:"2026-07-26", city:"Hvar", title:"Sun 26 · Golden hour",
+   anchors:[],
+   options:["Recovery morning: Majerovica cove, coffee on the Riva.","Fortica for sunset — up at 19:15, €10, café at the top, best view of the trip.","Rambo Amadeus at Veneranda 21:30 if curiosity wins (adriaticket.com).","Book tomorrow's porters at reception. Last Hvar night — as big or small as we're able for."]},
+  {d:"2026-07-27", city:"→ Split", title:"Mon 27 · To the Radisson",
+   anchors:[["09:30","Breakfast, pack — porters take the bags down"],["11:00","At the pier"],["11:30","Jadrolinija 641 → Split, ~12:35"],["12:45","Bolt to Radisson Blu (~€10) — check in, straight to the pool"]],
+   options:["Afternoon at Mistral Beach Club — free beds as guests (claim by mid-morning normally, today just take what's there), DJ till 8.","Easy dinner at the hotel or ten minutes along the new Žnjan promenade.","Early one if Hvar took its toll. Allowed."]},
+  {d:"2026-07-28", city:"Split", title:"Tue 28 · Beach club day",
+   anchors:[["20:30","Kadena — Michelin seafood by the marina, walking distance (booked?)"]],
+   options:["The full stay-put day: free beds at Mistral from mid-morning, swim, cocktails, resident DJ till sunset.","Optional evening add-on: Bolt into the palace for a golden-hour wander and the Riva before dinner.","Or keep it simple: beach club → shower → Kadena → bed."]},
+  {d:"2026-07-29", city:"→ Solin", title:"Wed 29 · Swap hotels, slow down",
+   anchors:[["11:00","Check out of the Radisson (one last Mistral morning first if the beds are free)"],["14:30","Bolt to Salona Palace (~€10–15) — bags in, check-in from 15:00"]],
+   options:["Ask reception straight away: Kašjuni shuttle times, spa access, and is there a wedding on.","Afternoon: shuttle to Kašjuni + Joe's, or straight into the spa.","The palace + Riva evening if we skipped it — Old Town's at its best after 6pm. Cellars (~€8) have the dragon-egg room.","Quiet dinner. The wind-down starts."]},
+  {d:"2026-07-30", city:"Solin", title:"Thu 30 · Ruins and the spa",
+   anchors:[],
+   options:["Salona ruins at 9am before the heat — they're 200m away. €8, proper shoes, the amphitheatre's the star.","Spa late morning / Kašjuni afternoon, whichever order.","Optional: Bolt to Mistral tonight — The Illusionist plays the beach club (~€15 each way).","Last dinner together of the trip. Make it a good one. Orlaith packs tonight — 06:45 start. Bolt Reserve booked?"]},
+  {d:"2026-07-31", city:"Home", title:"Fri 31 · The long goodbye",
+   anchors:[["06:45","Orlaith's car to the airport (Bolt Reserve, booked Thursday)"],["09:05","VY2479 → Barcelona, lands 11:20 ✈️"],["11:00","Niall: checkout — bags stored at Salona Palace"],["19:45","Niall at SPU — eat BEFORE security, airside is one sad sandwich"],["22:15","FR1381 → Dublin, lands 00:25"]],
+   options:["The smart solo day: Trogir — 20 min away on the airport side. Venetian old town, Kamerlengo fortress, harbour lunch at Franka or Piccolo Ponte, then a 10-min hop to SPU. Bus 37 from Sveti Kajo does the whole run (~€2).","The tempting one: Tom Novy at Mistral. Wrong side of the city, luggage in tow, tight for the flight. If the head insists: out by 19:30 sharp.","Or nothing: pool, spa, long lunch, no plan. Also correct."]}
+];
+
+// ---------- checklists ----------
+const PRETRIP = [
+  "Book Jadrolinija 641 boat for the 27th (red card, Bookings tab)",
+  "Message Hvar porters — transfers@suncanihvar.com — name + TP Line 18:25 on the 23rd",
+  "Book Nautika for Wed 22nd (upper terrace)",
+  "Book Gariful for Sat 25th (table on the water)",
+  "Book Kadena for Tue 28th (OpenTable)",
+  "Book the sunset kayak if we want it — it sells out",
+  "Save the TP Line PDF to both phones (screenshot the barcodes)",
+  "Download offline Google Maps: Dubrovnik, Hvar, Split",
+  "Both phones: add this app to the home screen",
+  "Bolt app installed and logged in — both phones",
+  "Two plug adapters (round two-pin)",
+  "EHIC cards for both",
+  "Factor 50 + after-sun",
+  "Water shoes ×2",
+  "Power bank charged"
+];
+const PACKING = [
+  "Passports",
+  "EHIC cards",
+  "Adapters ×2 + chargers + power bank",
+  "Factor 50, after-sun, SPF lip balm",
+  "Hats + sunglasses",
+  "Water shoes",
+  "Swim gear ×2 each (one's always wet)",
+  "Light cover-up for churches (shoulders/knees)",
+  "One smart-casual dinner outfit each (Nautika + Gariful nights)",
+  "Comfy sandals — cobbles and hills everywhere",
+  "Small day bag for boats and beaches",
+  "Refillable water bottles",
+  "Paracetamol, plasters, motion-sickness tabs",
+  "Cards + about €100 starting cash"
+];
+
+// ---------- rendering ----------
+const $ = (s)=>document.querySelector(s);
+const $$ = (s)=>document.querySelectorAll(s);
+
+function dayCard(day, open){
+  let h = `<details${open?" open":""}><summary>${day.title} <span class="muted">· ${day.city}</span></summary><div class="inner">`;
+  for(const [t,txt] of day.anchors) h += `<div class="anchor"><span class="t">${t}</span> — ${txt}</div>`;
+  if(day.options.length){
+    h += `<h3>Pick from</h3><ul>` + day.options.map(o=>`<li>${o}</li>`).join("") + `</ul>`;
+  }
+  h += `</div></details>`;
+  return h;
+}
+
+function localISO(dt){
+  const y=dt.getFullYear(), m=String(dt.getMonth()+1).padStart(2,"0"), d=String(dt.getDate()).padStart(2,"0");
+  return `${y}-${m}-${d}`;
+}
+
+function renderDays(){
+  const today = localISO(new Date());
+  $("#days-list").innerHTML = DAYS.map(d=>dayCard(d, d.d===today)).join("");
+}
+
+function renderToday(){
+  const today = localISO(new Date());
+  const slot = $("#today-slot");
+  const idx = DAYS.findIndex(d=>d.d===today);
+  if(today < "2026-07-19"){
+    const days = Math.round((new Date("2026-07-19T12:00:00") - new Date(today+"T12:00:00"))/86400000);
+    slot.innerHTML = `<div class="card"><div class="countdown"><div class="n">${days}</div><div>day${days===1?"":"s"} to go</div></div>
+      <p style="text-align:center">FR3880, Sunday 08:55. Airport for 06:45.</p>
+      <p class="muted" style="text-align:center">The "Before we fly" list is on the Info tab — a few of those need doing today.</p></div>`;
+  } else if(idx >= 0){
+    slot.innerHTML = `<p class="muted" style="margin:2px 2px 8px">Day ${idx+1} of 13 · ${DAYS[idx].city}</p>`
+      + dayCard(DAYS[idx], true)
+      + (idx+1 < DAYS.length ? `<p class="muted" style="margin:2px 2px 10px">Tomorrow: ${DAYS[idx+1].title}</p>` : "");
+  } else {
+    slot.innerHTML = `<div class="card"><h2>Home again 🏠</h2><p>That was some trip. The guides stay here whenever the memories need jogging.</p></div>`;
+  }
+}
+
+function renderList(el, items, prefix){
+  el.innerHTML = items.map((t,i)=>{
+    const k = prefix+i;
+    const on = localStorage.getItem(k)==="1" ? " checked":"";
+    return `<label class="tick"><input type="checkbox" data-k="${k}"${on}><span>${t}</span></label>`;
+  }).join("");
+}
+
+renderDays(); renderToday();
+renderList($("#list-pretrip"), PRETRIP, "pre-");
+renderList($("#list-packing"), PACKING, "pack-");
+
+document.addEventListener("change",(e)=>{
+  const k = e.target?.dataset?.k;
+  if(k) localStorage.setItem(k, e.target.checked?"1":"0");
+});
+$("#resetticks").addEventListener("click",()=>{
+  if(!confirm("Untick everything?")) return;
+  for(const el of $$("label.tick input")){ el.checked=false; localStorage.setItem(el.dataset.k,"0"); }
+});
+
+// tabs
+$$("nav.bottom button").forEach(b=>b.addEventListener("click",()=>{
+  $$("nav.bottom button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  $$("section.tab").forEach(s=>s.classList.remove("active"));
+  $("#"+b.dataset.tab).classList.add("active");
+  window.scrollTo(0,0);
+}));
+
+// city segments
+$$("#cityseg button").forEach(b=>b.addEventListener("click",()=>{
+  $$("#cityseg button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  $$(".city").forEach(c=>c.classList.remove("active"));
+  $("#city-"+b.dataset.city).classList.add("active");
+}));
+
+// during the trip, default the Towns tab to the current city
+(function(){
+  const t = localISO(new Date());
+  let c = null;
+  if(t>="2026-07-19" && t<"2026-07-23") c="dbv";
+  else if(t>="2026-07-23" && t<"2026-07-27") c="hvr";
+  else if(t>="2026-07-27" && t<="2026-07-31") c="spl";
+  if(c) document.querySelector(`#cityseg button[data-city="${c}"]`)?.click();
+})();
+
+// offline
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+</script>
+</body>
+</html>
