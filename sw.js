@@ -1,6 +1,6 @@
 // Croatia 2026 — offline service worker.
 // Network-first for the page (so updates land when online), cache fallback offline.
-const CACHE = 'croatia2026-v4';
+const CACHE = 'croatia2026-v5';
 const ASSETS = [
   './',
   './index.html',
